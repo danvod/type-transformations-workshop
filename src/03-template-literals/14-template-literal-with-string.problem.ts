@@ -1,5 +1,6 @@
-type Route = unknown;
+type Route = `/${string}`;
 
+//  Template literal types that requires anything used as a "Route" type to be prefixed with a /
 export const goToRoute = (route: Route) => {};
 
 // Should succeed:

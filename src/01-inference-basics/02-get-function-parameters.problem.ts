@@ -11,7 +11,10 @@ const makeQuery = (
   },
 ) => {};
 
-type MakeQueryParameters = unknown;
+/**
+ * Extract a type from the types that are used in a function
+ */
+type MakeQueryParameters = Parameters<typeof makeQuery>;
 
 type tests = [
   Expect<

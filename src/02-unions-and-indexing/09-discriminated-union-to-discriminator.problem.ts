@@ -14,6 +14,9 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type EventType = unknown;
+/**
+ * Index into a discriminated union to "pluck" out its discriminators
+ */
+type EventType = Event["type"]
 
 type tests = [Expect<Equal<EventType, "click" | "focus" | "keydown">>];

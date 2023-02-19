@@ -14,7 +14,10 @@ export type Event =
       event: KeyboardEvent;
     };
 
-type NonKeyDownEvents = unknown;
+/**
+ * Again, utility type, pretty much the inverse of the Exclude from the previous exercise
+ */
+type NonKeyDownEvents = Exclude<Event, {type: 'keydown'}>;
 
 type tests = [
   Expect<

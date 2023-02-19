@@ -11,7 +11,15 @@ export const programModeEnumMap = {
   SELF_DIRECTED: "selfDirected",
   PLANNED_ONE_ON_ONE: "planned1on1",
   PLANNED_SELF_DIRECTED: "plannedSelfDirected",
-};
+} as const;
+
+/**
+ * Without "as const", the types below evaluate to conrete types of the target properties
+ * 
+ * With "as const" the types are narrowed and readonly
+ * Works similar to Object.freeze - however, Object.freeze only works at runtime at it only affects first-level propertieos
+ * as const will work on the entire object (nested properties)
+ */
 
 export type GroupProgram = typeof programModeEnumMap["GROUP"];
 export type AnnouncementProgram = typeof programModeEnumMap["ANNOUNCEMENT"];
