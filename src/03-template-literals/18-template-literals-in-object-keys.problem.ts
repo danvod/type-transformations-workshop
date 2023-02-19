@@ -1,8 +1,12 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils';
 
-type TemplateLiteralKey = `${"user" | "post" | "comment"}${"Id" | "Name"}`;
+type TemplateLiteralKey = `${'user' | 'post' | 'comment'}${'Id' | 'Name'}`;
 
-type ObjectOfKeys = unknown;
+type ObjectOfKeys = {
+  [k in TemplateLiteralKey]: string;
+};
+
+type ObjectOfKeysV2 = Record<TemplateLiteralKey, string>;
 
 type tests = [
   Expect<
@@ -18,4 +22,17 @@ type tests = [
       }
     >
   >,
+  Expect<
+    Equal<
+      ObjectOfKeysV2,
+      {
+        userId: string;
+        userName: string;
+        postId: string;
+        postName: string;
+        commentId: string;
+        commentName: string;
+      }
+    >
+  >
 ];
