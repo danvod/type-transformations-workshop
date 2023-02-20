@@ -1,6 +1,11 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type AddRoutePrefix<TRoute> = `/${TRoute}`;
+/**
+ * Constrain the type T to a string
+ * Without the type constraint, TRoute is inferred as unknown
+ */
+type AddRoutePrefix<TRoute extends string> = `/${TRoute}`;
+
 
 type tests = [
   Expect<Equal<AddRoutePrefix<"">, "/">>,

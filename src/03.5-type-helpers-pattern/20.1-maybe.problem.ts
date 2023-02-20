@@ -1,6 +1,9 @@
 import { Equal, Expect } from "../helpers/type-utils";
 
-type Maybe = unknown;
+/**
+ * Type Helper that can either be a T or null/undefined
+ */
+type Maybe<T> = T | null | undefined;
 
 type tests = [
   Expect<Equal<Maybe<string>, string | null | undefined>>,

@@ -1,4 +1,7 @@
-export type Maybe<T> = T | null | undefined;
+/**
+ * Expect T to be anything other than null or undefined
+ */
+export type Maybe<T extends {}> = T | null | undefined;
 
 type tests = [
   // @ts-expect-error
@@ -9,5 +12,5 @@ type tests = [
   Maybe<string>,
   Maybe<false>,
   Maybe<0>,
-  Maybe<"">,
+  Maybe<''>
 ];

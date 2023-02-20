@@ -1,6 +1,9 @@
-import { Equal, Expect } from "../helpers/type-utils";
+import { Equal, Expect } from '../helpers/type-utils';
 
-type CreateDataShape<TData, TError> = {
+/**
+ * When TError is given a default value of undefined, it does not have to be specified as the 2nd generic type argument in Test1
+ */
+type CreateDataShape<TData, TError = undefined> = {
   data: TData;
   error: TError;
 };
@@ -23,5 +26,5 @@ type tests = [
         error: SyntaxError;
       }
     >
-  >,
+  >
 ];
